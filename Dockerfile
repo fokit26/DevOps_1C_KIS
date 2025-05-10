@@ -4,7 +4,7 @@ RUN apk update && apt install --no-cache cmake && pip install --no-cache-dir fla
 
 WORKDIR /app
 
-COPY app.py .
+COPY docker/app.py .
 
 EXPOSE 10000
 
