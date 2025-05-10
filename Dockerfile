@@ -1,6 +1,6 @@
 FROM python:3.12.10-alpine3.20
 
-RUN apk update && apk install --no-cache cmake && pip install --no-cache-dir flask
+RUN apk update && apk add --no-cache cmake && pip install --no-cache-dir flask
 
 WORKDIR /app
 
