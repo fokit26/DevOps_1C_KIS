@@ -1,0 +1,7 @@
+stages:
+ - BuildImage
+
+include:
+  - project: 'devops-loiko-maxim-2025/devops-template/gitlab-ci'
+    file: 'gitlab-build-dind.yml'
+    ref: main
