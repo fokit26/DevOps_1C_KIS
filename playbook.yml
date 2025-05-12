@@ -1,10 +1,14 @@
 - name: Deploy repository to server
   hosts: server
   vars:
-    git_clone_repo: https://github.com/ansible/ansible.git
     git_clone_dest: /home/devops/fokit26/Devops
     git_clone_branch: release1.8.2
   tasks:
+    - name: Include GitLab predefenition variables
+      ansible.builtin.include_vars: vars_playbook.yml
+    - name: Echo debag variables
+      debug:
+        msg: "repository: {{ git_clone_repa }}, branch: {{ git_clone_branch }}"
     - name: Install git
       ansible.builtin.package:
         name: git

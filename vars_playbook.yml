@@ -1,0 +1,2 @@
+git_clone_repa: "{{ REPO_URL }}"
+git_clone_branch: "{{ BRANCH_NAME }}"
