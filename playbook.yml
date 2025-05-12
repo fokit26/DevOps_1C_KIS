@@ -1,0 +1,18 @@
+- name: Deploy repository to server
+  hosts: server
+  vars:
+    git_clone_repo: https://github.com/ansible/ansible.git
+    git_clone_dest: /home/devops/fokit26/Devops
+    git_clone_branch: release1.8.2
+  tasks:
+    - name: Install git
+      ansible.builtin.package:
+        name: git
+        state: present   
+    - name: Clone and checkout repository
+      ansible.builtin.git:
+        repo: "{{ git_clone_repo }}"
+        dest: "{{ git_clone_dest }}"
+        version: "{{ git_clone_branch }}"
+        update: yes
+        force: yes
