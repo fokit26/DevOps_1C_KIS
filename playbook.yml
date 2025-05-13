@@ -2,7 +2,6 @@
   hosts: server
   vars:
     git_clone_dest: /home/devops/fokit26/Devops
-    git_clone_branch: release1.8.2
   tasks:
     - name: Include GitLab predefenition variables
       ansible.builtin.include_vars: vars_playbook.yml
