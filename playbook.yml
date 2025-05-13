@@ -5,9 +5,9 @@
     git_clone_dest: /home/devops/fokit26/Devops
     git_clone_branch: "{{ git_clone_branch }}"
   tasks:
-    - name: Echo debag variables
+    - name: Echo debug variables
       debug:
-        msg: "repository: {{ git_clone_repa }}, branch: {{ git_clone_branch }}"
+        msg: "repository: {{ git_clone_repo }}, branch: {{ git_clone_branch }}"
     - name: Install git
       ansible.builtin.package:
         name: git
