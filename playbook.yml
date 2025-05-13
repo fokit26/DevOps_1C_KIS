@@ -11,7 +11,7 @@
     - name: Install git
       ansible.builtin.package:
         name: git
-        state: present   
+        state: present
     - name: Clone and checkout repository
       ansible.builtin.git:
         repo: "{{ git_clone_repo }}"
