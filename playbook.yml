@@ -17,6 +17,7 @@
         repo: "{{ git_clone_repo }}"
         dest: "{{ git_clone_dest }}"
         version: "{{ git_clone_branch }}"
-        key_file: ~/.ssh/gitlab-ci-exemple
+        key_file: "/home/devops/fokit26/.ssh/gitlab-ci-exemple"
+        accept_hostkey: yes
         update: yes
         force: yes
