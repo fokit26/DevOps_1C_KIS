@@ -1,15 +1,15 @@
 stages:
-  - BuildDocs
-  - BuildImage
+  # - BuildDocs
+  # - BuildImage
   - deploy
   
 include:
-  - project: 'devops-loiko-maxim-2025/devops-template/gitlab-ci'
-    file: 'gitlab-echo-author.yml'
-    ref: main
-  - project: 'devops-loiko-maxim-2025/devops-template/gitlab-ci'
-    file: 'gitlab-build-dind.yml'
-    ref: main
+  # - project: 'devops-loiko-maxim-2025/devops-template/gitlab-ci'
+  #   file: 'gitlab-echo-author.yml'
+  #   ref: main
+  # - project: 'devops-loiko-maxim-2025/devops-template/gitlab-ci'
+  #   file: 'gitlab-build-dind.yml'
+  #   ref: main
   - project: 'devops-loiko-maxim-2025/devops-template/gitlab-ci'
     file: 'gitlab-deploy-ansible.yml'
     ref: main
