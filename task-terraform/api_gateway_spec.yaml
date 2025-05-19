@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: WebApp API
+paths:
+  /v1:
+    get:
+      x-yc-apigateway-integration:
+        type: http
+        url: "http://${webapp1_ip}"
+        method: GET
+  /v2:
+    get:
+      x-yc-apigateway-integration:
+        type: http
+        url: "http://${webapp2_ip}"
+        method: GET
