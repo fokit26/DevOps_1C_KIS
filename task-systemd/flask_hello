@@ -1,0 +1,12 @@
+/var/log/flask_hello.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 644 maxim maxim
+    postrotate
+        systemctl kill -s HUP myflaskapp.service
+    endscript
+}

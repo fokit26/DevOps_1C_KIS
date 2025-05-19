@@ -1,0 +1,20 @@
+[Unit]
+Description=My flash app
+After=network.target
+
+[Service]
+Environment="APP_DIR=/home/maxim/max/mipt/DevOps_KIS/kis-devops2025-loiko-maxim/task-systemd"
+Environment="PYTHONUNBUFFERED=1"
+User=maxim
+Group=maxim
+WorkingDirectory=/home/maxim/max/mipt/DevOps_KIS/kis-devops2025-loiko-maxim/task-systemd
+ExecStart=/usr/bin/python3 ${APP_DIR}/app.py
+Restart=always
+
+# Отправляем в journalctl
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=flask_hello
+
+[Install]
+WantedBy=multi-user.target
