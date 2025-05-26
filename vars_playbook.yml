@@ -1,2 +1,0 @@
-git_clone_repa: "{{ CI_PROJECT_URL }}"
-git_clone_branch: "{{ CI_COMMIT_REF_NAME }}"
