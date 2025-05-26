@@ -1,0 +1,9 @@
+CreateAuthor:
+  stage: BuildDocs
+  tags:
+    - common
+  script:
+    - ./git-work/get_author.sh > authors.txt
+  artifacts:
+    paths:
+      - authors.txt

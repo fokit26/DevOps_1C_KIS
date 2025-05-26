@@ -1,0 +1,16 @@
+DeployProject:
+  stage: deploy
+  needs: [BuildDebugImage]
+  tags:
+    - common
+  image: debian:12.10-slim
+  before_script:
+    - apt-get update && apt-get install -y ansible
+    - mkdir ~/.ssh
+    - echo "$SSH_KEY" | base64 -d > ~/.ssh/id_rsa
+    - ssh-keyscan -t rsa $HOST > ~/.ssh/known_hosts
+    - ssh-keyscan -t rsa gitlab.akhcheck.ru >> ~/.ssh/known_hosts
+    - chmod 0600 ~/.ssh/id_rsa
+    - chmod 0600 ~/.ssh/known_hosts
+  script:
+    - ansible-playbook -i hosts playbook.yml -e "git_clone_repo=$CI_REPOSITORY_URL" -e "git_clone_branch=$CI_COMMIT_REF_NAME"

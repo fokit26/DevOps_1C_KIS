@@ -1,0 +1,17 @@
+BuildDebugImage:
+  stage: BuildImage
+  tags:
+    - dind
+  image: docker
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+    DOCKER_HOST: "tcp://docker-service:2375"
+  services:
+    - alias: docker-service
+      name: docker
+  before_script:
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE/debug:staging .
+    - docker push $CI_REGISTRY_IMAGE/debug:staging
+
